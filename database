@@ -1,5 +1,16 @@
 create database shop ;  
 use shop ;
+CREATE TABLE `good` (
+  `goodid` int(11) NOT NULL,
+  `goodname` varchar(45) DEFAULT NULL,
+  `buyprice` double DEFAULT NULL,
+  `sellprice` double DEFAULT NULL,
+  `goodamount` int(11) DEFAULT NULL,
+  `goodunit` varchar(45) DEFAULT NULL,
+  `goodclass` varchar(45) DEFAULT NULL,
+  `goodnote` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`goodid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `customer` (
   `customerid` int(11) NOT NULL,
@@ -13,22 +24,13 @@ CREATE TABLE `customer` (
 CREATE TABLE `supplier` (
   `supplierid` int(11) NOT NULL,
   `suppliername` varchar(45) DEFAULT NULL,
+  `supplierhead` varchar(45) DEFAULT NULL,
   `suppliertel` varchar(45) DEFAULT NULL,
   `supplieraddress` varchar(45) DEFAULT NULL,
   `suppliernote` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`supplierid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `good` (
-  `goodid` int(11) NOT NULL,
-  `goodname` varchar(45) DEFAULT NULL,
-  `goodprice` double DEFAULT NULL,
-  `goodamount` int(11) DEFAULT NULL,
-  `goodunit` varchar(45) DEFAULT NULL,
-  `goodtime` datetime DEFAULT NULL,
-  `goodnote` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`goodid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `orderclass` (
   `orderclassid` int(11) NOT NULL,
@@ -36,20 +38,75 @@ CREATE TABLE `orderclass` (
   PRIMARY KEY (`orderclassid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE `orderitem` (
-  `orderitemid` int(11) NOT NULL,
+CREATE TABLE `order` (
+  `oid` int(11) NOT NULL AUTO_INCREMENT,
+  `orderid` int(11) DEFAULT NULL,
   `orderclassid` int(11) DEFAULT NULL,
-  `orderitemname` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`orderitemid`),
+  `goodid` int(11) DEFAULT NULL,
+  `acount` int(11) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
+  `note` varchar(45) DEFAULT NULL,
+  `customerid` int(11) DEFAULT NULL,
+  `supplierid` int(11) DEFAULT NULL,
+  PRIMARY KEY (`oid`),
   KEY `orderclassid_idx` (`orderclassid`),
-  CONSTRAINT `orderclassid` FOREIGN KEY (`orderclassid`) REFERENCES `orderclass` (`orderclassid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `goodid_idx` (`goodid`),
+  KEY `customerid_idx` (`customerid`),
+  KEY `supplierid_idx` (`supplierid`),
+  CONSTRAINT `customerid` FOREIGN KEY (`customerid`) REFERENCES `customer` (`customerid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `goodid` FOREIGN KEY (`goodid`) REFERENCES `good` (`goodid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `orderclassid` FOREIGN KEY (`orderclassid`) REFERENCES `orderclass` (`orderclassid`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `supplierid` FOREIGN KEY (`supplierid`) REFERENCES `supplier` (`supplierid`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-CREATE TABLE `orderdetail` (
-  `orderdetailid` int(11) NOT NULL,
-  `orderitemid` int(11) DEFAULT NULL,
-  `orderdetail` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`orderdetailid`),
-  KEY `orderitemid_idx` (`orderitemid`),
-  CONSTRAINT `orderitemid` FOREIGN KEY (`orderitemid`) REFERENCES `orderitem` (`orderitemid`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+INSERT INTO `shop`.`orderclass`(`orderclassid`,`orderclassname`)VALUES('1','采购');
+INSERT INTO `shop`.`orderclass`(`orderclassid`,`orderclassname`)VALUES('2','采购退货');
+INSERT INTO `shop`.`orderclass`(`orderclassid`,`orderclassname`)VALUES('3','销售');
+INSERT INTO `shop`.`orderclass`(`orderclassid`,`orderclassname`)VALUES('4','销售退货');
+
+
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('1', '哇哈哈', '1.0', '100', '瓶', '饮料');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('2', '冰露', '1.0', '100', '瓶', '饮料');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('3', '农夫山泉', '2.0', '50', '瓶', '饮料');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('4', '可口可乐', '3.0', '30', '瓶', '饮料');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('5', '百事可乐', '3.0', '20', '瓶', '饮料');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('6', '苏打饼', '3.0', '50', '袋', '零食');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('7', '薯片', '3.0', '30', '袋', '零食');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('8', '山楂片', '2.0', '20', '袋', '零售');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('9', '手指饼', '1.5', '60', '袋', '零食');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('10', '果冻', '4.0', '66', '个', '零食');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('11', '香蕉', '3.0', '45', '个', '水果');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('12', '苹果', '3.5', '80', '个', '水果');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('13', '西瓜', '2.0', '60', '个', '水果');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('14', '橘子', '1.5', '70', '个', '水果');
+INSERT INTO `shop`.`good` (`goodid`, `goodname`, `goodprice`, `goodamount`, `goodunit`, `goodclass`) VALUES ('15', '梨', '2.0', '30', '个', '水果');
+
+
+
+
+INSERT INTO `shop`.`customer` (`customerid`, `customername`, `customertel`, `customeraddress`) VALUES ('1', '张三', '001', '123');
+INSERT INTO `shop`.`customer` (`customerid`, `customername`, `customertel`, `customeraddress`) VALUES ('2', '李四', '002', '123');
+INSERT INTO `shop`.`customer` (`customerid`, `customername`, `customertel`, `customeraddress`) VALUES ('3', '王五', '003', '123');
+INSERT INTO `shop`.`customer` (`customerid`, `customername`, `customertel`, `customeraddress`) VALUES ('4', '赵六', '004', '123');
+INSERT INTO `shop`.`customer` (`customerid`, `customername`, `customertel`, `customeraddress`) VALUES ('5', '陈七', '005', '123');
+
+
+INSERT INTO `shop`.`supplier` (`supplierid`, `suppliername`,`supplierhead`, `suppliertel`, `supplieraddress`) VALUES ('1', '饮料供应商', '张三','123456', '矿大');
+INSERT INTO `shop`.`supplier` (`supplierid`, `suppliername`,`supplierhead`, `suppliertel`, `supplieraddress`) VALUES ('2', '水果供应商', '李四','654321', '师大');
+INSERT INTO `shop`.`supplier` (`supplierid`, `suppliername`,`supplierhead`, `suppliertel`, `supplieraddress`) VALUES ('3', '零食供应商', '王五','321012', '建院');
+
+UPDATE `shop`.`good` SET `buyprice`='0.7' WHERE `goodid`='1';
+UPDATE `shop`.`good` SET `buyprice`='0.7' WHERE `goodid`='2';
+UPDATE `shop`.`good` SET `buyprice`='1.5' WHERE `goodid`='3';
+UPDATE `shop`.`good` SET `buyprice`='2.5' WHERE `goodid`='4';
+UPDATE `shop`.`good` SET `buyprice`='2.5' WHERE `goodid`='5';
+UPDATE `shop`.`good` SET `buyprice`='2.5' WHERE `goodid`='6';
+UPDATE `shop`.`good` SET `buyprice`='2.5' WHERE `goodid`='7';
+UPDATE `shop`.`good` SET `buyprice`='1.5' WHERE `goodid`='8';
+UPDATE `shop`.`good` SET `buyprice`='1' WHERE `goodid`='9';
+UPDATE `shop`.`good` SET `buyprice`='3.5' WHERE `goodid`='10';
+UPDATE `shop`.`good` SET `buyprice`='2.5' WHERE `goodid`='11';
+UPDATE `shop`.`good` SET `buyprice`='3' WHERE `goodid`='12';
+UPDATE `shop`.`good` SET `buyprice`='1.5' WHERE `goodid`='13';
+UPDATE `shop`.`good` SET `buyprice`='1' WHERE `goodid`='14';
+UPDATE `shop`.`good` SET `buyprice`='1.5' WHERE `goodid`='15';
