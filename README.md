@@ -10,7 +10,7 @@
 3.对代码设计出结构并编写好结构代码</p>
 
 数据库</p>
-![er](https://cloud.githubusercontent.com/assets/16076963/20460410/1a742836-af1c-11e6-9bd9-cc70b0997d32.png)
+
 </p>
 </p>
 用例图</p>
