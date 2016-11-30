@@ -1,0 +1,34 @@
+td, th {
+    text-align: center !important;
+}
+
+.tab thead {
+    background-image: url(../images/left-title-bg-h.png);
+}
+
+thead th {
+    height: 30px;
+    color: white;
+    line-height: 30px !important;
+}
+ td {
+    height: 30px;
+	line-height: 30px !important;
+}
+
+
+.add {
+    margin: 10px 0;
+}
+
+#open{
+	height:10px ;
+	width: 30px ;
+	color: yellow;
+}
+
+#put{
+	hight:20px;
+	width:30px;
+	color:yellow;
+}

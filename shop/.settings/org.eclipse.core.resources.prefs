@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//WebContent/Views/Index.jsp=UTF-8
+encoding//WebContent/Views/addbuy.jsp=UTF-8
+encoding//WebContent/Views/addcustomer.jsp=UTF-8
+encoding//WebContent/Views/addgood.jsp=UTF-8
+encoding//WebContent/Views/addoutbuy.jsp=UTF-8
+encoding//WebContent/Views/buygood.jsp=UTF-8
+encoding//WebContent/Views/find.jsp=UTF-8
+encoding//WebContent/Views/managecustomer.jsp=UTF-8
+encoding//WebContent/Views/managegood.jsp=UTF-8
+encoding//WebContent/Views/managesupplier.jsp=UTF-8
+encoding//WebContent/Views/outbuy.jsp=UTF-8
+encoding//WebContent/Views/outbuytable.jsp=UTF-8
+encoding//WebContent/Views/outsell.jsp=UTF-8
+encoding//WebContent/Views/sell.jsp=UTF-8
+encoding//WebContent/Views/selltable.jsp=UTF-8

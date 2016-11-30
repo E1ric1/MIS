@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="GBK"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
+	
+	<servlet>
+		<servlet-name>index</servlet-name>
+		<servlet-class>../Views/Index.jsp</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddGood</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddGood</servlet-class>
+	</servlet>
+		<servlet-mapping>
+		<servlet-name>AddGood</servlet-name>
+		<url-pattern>/Views/AddGood</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AddCustomer</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddCustomer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddCustomer</servlet-name>
+		<url-pattern>/Views/AddCustomer</url-pattern>
+	</servlet-mapping>
+
+    <servlet>
+		<servlet-name>AddBuyOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddBuyOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddBuyOrder</servlet-name>
+		<url-pattern>/Views/AddBuyOrder</url-pattern>
+	</servlet-mapping>
+	
+    <servlet>
+		<servlet-name>DelOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.DelOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelOrder</servlet-name>
+		<url-pattern>/Views/DelOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindOrder</servlet-name>
+		<url-pattern>/Views/FindOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindOutOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindOutOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindOutOrder</servlet-name>
+		<url-pattern>/Views/FindOutOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindSellOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindSellOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindSellOrder</servlet-name>
+		<url-pattern>/Views/FindSellOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindSellOutOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindSellOutOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindSellOutOrder</servlet-name>
+		<url-pattern>/Views/FindSellOutOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>OutOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.OutOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OutOrder</servlet-name>
+		<url-pattern>/Views/OutOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>OutSellOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.OutSellOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>OutSellOrder</servlet-name>
+		<url-pattern>/Views/OutSellOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddSellOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddSellOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSellOrder</servlet-name>
+		<url-pattern>/Views/AddSellOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DelSellOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.DelSellOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelSellOrder</servlet-name>
+		<url-pattern>/Views/DelSellOrder</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
+ 
+	
+  	
