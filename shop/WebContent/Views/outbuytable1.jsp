@@ -15,39 +15,38 @@
 <body>
     <div class="container-fluid">
         <div class="row-fluid">
-            <h4>销售订单列表</h4>
-            <% String orderid = (String)request.getAttribute("orderid"); %>
-            <div class="add"><a class="btn btn-success" href="sell.jsp?orderid=<%=orderid%>">新增</a></div>
+            <h4>采购退货订单列表</h4>
+            <% 
+                 int oo = (int)request.getAttribute("oo");
+            %>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">
                         <thead>
                             <tr>
+                            
                             	<th>订单编号</th>
-                                <th>客户编号</th>
-                                <th>销售时间</th>
+                                <th>供应商编号</th>
+                                <th>采购时间</th>
                                 <th>商品编号</th>
-                                <th>销售数量</th>
-                                <th>销售备注</th>
-                                <th>删除</th>
+                                <th>采购数量</th>
+                                <th>采购备注</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
                          <tr>
                                      <%
-                                        int orderclassid = 3 ;
+                                        int orderclassid = 2 ;
   	                                    IOrderDao order = new OrderDaoImpl();
-	                                    List<Order> list=order.findOrder(Integer.parseInt(orderid),orderclassid);
+	                                    List<Order> list=order.foundOrder(oo,orderclassid);
 	                                    for(Order s: list){ 
                                       %> 
                                      <td><%=s.getOrderid() %></td>
-                                     <td><%=s.getCustomerid() %></td>
+                                     <td><%=s.getSupplierid() %></td>
                                      <td><%=s.getTime() %></td>
                                      <td><%=s.getGoodid() %></td>
                                      <td><%=s.getAcount() %></td>
-                                     <td><%=s.getNote() %></td>
-                                     <td><a href="DelOrder?goodid=<%=s.getGoodid()%>&&orderid=<%=orderid%>">删除</a></td>
-             
+                                     <td><%=s.getNote() %></td>                                   
                                </tr> 
                                
                           

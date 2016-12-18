@@ -42,14 +42,19 @@
 			time.focus() ;
 			return false;
 		}
-		var note = document.getElementById("note") ;
-		if(note.value==""){
+		addorder_form.submit() ;
+	}   
+    function supplier(){  
+    	var supplierid = document.getElementById("supplierid") ;
+		if(supplierid.value==""){
 			alert("不能为空！")
-			note.focus() ;
+			supplierid.focus() ;
 			return false;
 		}
-		addorder_form.submit() ;
-	}
+              
+   }  
+     
+
 </script>
     <div class="container-fluid">
         <div class="row-fluid">
@@ -60,14 +65,17 @@
                 <div>
                     <label>订单编号</label>
                     <input type="text" id="orderid" name="orderid"/>
+                    
                 </div>
                 <div>
                     <label>供应商编号</label>
                     <input type="text" id="supplierid" name="supplierid"/>
+                    <input type="button" value="查询" onclick="supplier()">     
                 </div>
                 <div>
                      <label>商品编号</label>
                      <input type="text" id="goodid" name="goodid"/>
+                     <input type="button" value="查询" />  
                 </div>
                 <div>
                      <label>采购数量</label>

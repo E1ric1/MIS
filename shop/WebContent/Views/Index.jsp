@@ -40,7 +40,7 @@
                                 <img class="left-icon-child" src="../images/32/8.png" /><a href="addbuy.jsp" target="test"><span class="left-body" >商品采购</span></a>
                             </div>
                             <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/8.png" /><a href="sell.jsp" target="test"><span class="left-body" >商品销售</span></a>
+                                <img class="left-icon-child" src="../images/32/8.png" /><a href="addsell.jsp" target="test"><span class="left-body" >商品销售</span></a>
 
                             </div>
                             <div class="accordion-inner">
@@ -51,10 +51,7 @@
                                 <img class="left-icon-child" src="../images/32/8.png" /><a href="outsell.jsp" target="test"><span class="left-body" >销售退货</span></a>
 
                             </div>
-                            <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/8.png" /><a href="find.jsp" target="test"><span class="left-body" >订单查询</span></a>
 
-                            </div>
                             <div class="accordion-inner">
                                 <img class="left-icon-child" src="../images/32/8.png" /><a href="managegood.jsp" target="test"><span class="left-body" >商品管理</span></a>
 
@@ -85,7 +82,7 @@
 
                             </div>
                             <div class="accordion-inner">
-                                <img class="left-icon-child" src="../images/32/8.png" /><span class="left-body">库存盘点</span>
+                                <img class="left-icon-child" src="../images/32/8.png" /><a href="store.jsp" target="test"><span class="left-body">库存预警</span></a>
 
                             </div>
                         </div>

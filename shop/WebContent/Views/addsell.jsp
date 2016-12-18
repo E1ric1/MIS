@@ -12,12 +12,7 @@
 <body>
 <script >
     function addorder(){  
-		var goodid = document.getElementById("goodid") ;
-		if(goodid.value==""){
-			alert("不能为空！")
-			goodid.focus() ;
-			return false;
-		}
+	
 		var orderid = document.getElementById("orderid") ;
 		if(orderid.value==""){
 			alert("不能为空！")
@@ -28,6 +23,12 @@
 		if(customerid.value==""){
 			alert("不能为空！")
 			customerid.focus() ;
+			return false;
+		}
+		var goodid = document.getElementById("goodid") ;
+		if(goodid.value==""){
+			alert("不能为空！")
+			goodid.focus() ;
 			return false;
 		}
 		var acount = document.getElementById("acount") ;

@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import cn.cumt.shop.dao.ISupplierDao;
 import cn.cumt.shop.dbc.DBUtil;
+import cn.cumt.shop.domain.Good;
 import cn.cumt.shop.domain.Supplier;
 
 public class SupplierDaoImpl implements ISupplierDao{
@@ -73,4 +74,52 @@ public class SupplierDaoImpl implements ISupplierDao{
 	
 	}
 
-}
+	@Override
+	public int addSupplier(Supplier supplier) {
+		// TODO Auto-generated method stub
+		//添加商品
+				int id = supplier.getSupplier() ;
+				int supplierid = supplier.getSupplierid() ;
+				String suppliername = supplier.getSuppliername() ;
+				String supplierhead = supplier.getSupplierhead() ;
+				String suppliertel = supplier.getSuppliertel() ;
+				String supplieraddress= supplier.getSupplieraddress() ;
+				String suppliernote = supplier.getSuppliernote() ;
+				int row = 0 ;
+				String sql = "insert supplier (supplier,supplierid,suppliername,supplierhead,suppliertel,supplieraddress,suppliernote) values ('"+id+"','"+supplierid+"','"+suppliername+"','"+supplierhead+"','"+suppliertel+"','"+supplieraddress+"','"+suppliernote+"')" ;
+				DBUtil db = new DBUtil() ;
+				Connection conn = db.getConnection() ;
+				try{
+					Statement stmt = conn.createStatement() ; 
+					row = stmt.executeUpdate(sql) ;
+					db.closeAll(conn, stmt, null);
+				}catch(SQLException e ){
+					e.printStackTrace();
+				}
+				return row ;		
+			}
+	@Override
+	public int getId() {
+		//ID
+		int id = 0 ;
+		DBUtil db = new DBUtil() ;
+		Connection conn = db.getConnection() ;
+		Statement stmt = null ;
+		ResultSet rs = null ;
+		String sql = "select Max(supplier) from supplier" ;
+		try{
+			stmt = conn.createStatement() ;
+			rs = stmt.executeQuery(sql) ;
+			if(rs.next()){
+				id = rs.getInt(1) ;
+			}
+			db.closeAll(conn, stmt, rs);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}
+		id++ ;
+		return id ;
+	}
+	}
+
+

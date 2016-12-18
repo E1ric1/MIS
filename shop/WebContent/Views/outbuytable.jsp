@@ -15,14 +15,16 @@
 <body>
     <div class="container-fluid">
         <div class="row-fluid">
-            <h4>采购订单列表</h4>
-            <% String orderid = (String)request.getAttribute("orderid"); %>
-         
+            <h4>采购退货订单列表</h4>
+            <% 
+                 int id = (int)request.getAttribute("order");
+            %>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">
                         <thead>
                             <tr>
+                            	<th>总订单编号</th>
                             	<th>订单编号</th>
                                 <th>供应商编号</th>
                                 <th>采购时间</th>
@@ -37,16 +39,17 @@
                                      <%
                                         int orderclassid = 1 ;
   	                                    IOrderDao order = new OrderDaoImpl();
-	                                    List<Order> list=order.findOrder(Integer.parseInt(orderid),orderclassid);
+	                                    List<Order> list=order.foundOrder3(id,orderclassid);
 	                                    for(Order s: list){ 
                                       %> 
+                                      <td><%=s.getOrder() %></td>
                                      <td><%=s.getOrderid() %></td>
                                      <td><%=s.getSupplierid() %></td>
                                      <td><%=s.getTime() %></td>
                                      <td><%=s.getGoodid() %></td>
                                      <td><%=s.getAcount() %></td>
                                      <td><%=s.getNote() %></td>
-                                     <td><a href="OutSellOrder?goodid=<%=s.getGoodid()%>&&orderid=<%=orderid%>">退货</a></td>
+                                     <td><a href="OutOrder?orderid=<%=s.getOrderid()  %>&&goodid=<%=s.getGoodid() %>"><input type="button" value="退货" /></a></td>
                                </tr> 
                                
                           

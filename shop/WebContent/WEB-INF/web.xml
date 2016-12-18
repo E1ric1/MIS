@@ -4,21 +4,25 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 	http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
+	<welcome-file-list>
+		<welcome-file>/Views/Index.jsp</welcome-file>
+	</welcome-file-list>
 	
-	<servlet>
-		<servlet-name>index</servlet-name>
-		<servlet-class>../Views/Index.jsp</servlet-class>
+    <servlet>
+		<servlet-name>Index</servlet-name>
+		<jsp-file>/Views/Index.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>index</servlet-name>
-		<url-pattern>/index</url-pattern>
+		<servlet-name>Index</servlet-name>
+		<url-pattern>/Views/Index</url-pattern>
 	</servlet-mapping>
+
 	
 	<servlet>
 		<servlet-name>AddGood</servlet-name>
 		<servlet-class>cn.cumt.shop.servlet.AddGood</servlet-class>
 	</servlet>
-		<servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>AddGood</servlet-name>
 		<url-pattern>/Views/AddGood</url-pattern>
 	</servlet-mapping>
@@ -122,6 +126,113 @@
 		<url-pattern>/Views/DelSellOrder</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>AddNewBuyOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddNewBuyOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddNewBuyOrder</servlet-name>
+		<url-pattern>/Views/AddNewBuyOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddNewSellOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddNewSellOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddNewSellOrder</servlet-name>
+		<url-pattern>/Views/AddNewSellOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AddSupplier</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.AddSupplier</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddSupplier</servlet-name>
+		<url-pattern>/Views/AddSupplier</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>BuyDetail</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.BuyDetail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>BuyDetail</servlet-name>
+		<url-pattern>/Views/BuyDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SellDetail</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.SellDetail</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SellDetail</servlet-name>
+		<url-pattern>/Views/SellDetail</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindCustomer</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindCustomer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindCustomer</servlet-name>
+		<url-pattern>/Views/FindCustomer</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindGood</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindGood</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindGood</servlet-name>
+		<url-pattern>/Views/FindGood</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindSupplier</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindSupplier</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindSupplier</servlet-name>
+		<url-pattern>/Views/FindSupplier</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Buy</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.Buy</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Buy</servlet-name>
+		<url-pattern>/Views/Buy</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Sell</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.Sell</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sell</servlet-name>
+		<url-pattern>/Views/Sell</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindSupplierOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindSupplierOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindSupplierOrder</servlet-name>
+		<url-pattern>/Views/FindSupplierOrder</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>FindCustomerOrder</servlet-name>
+		<servlet-class>cn.cumt.shop.servlet.FindCustomerOrder</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindCustomerOrder</servlet-name>
+		<url-pattern>/Views/FindCustomerOrder</url-pattern>
+	</servlet-mapping>
 </web-app>
  
 	

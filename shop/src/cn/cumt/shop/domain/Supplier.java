@@ -1,6 +1,7 @@
 package cn.cumt.shop.domain;
 
 public class Supplier {
+	private int supplier;  
 	private int supplierid;  
 	private String suppliername ; 
 	private String supplierhead ; 
@@ -8,6 +9,17 @@ public class Supplier {
 	private String supplieraddress;
 	private String suppliernote;
 
+	public Supplier(int supplierid, String suppliername, String supplierhead, String suppliertel,
+			String supplieraddress, String suppliernote, int supplier) {
+		// TODO Auto-generated constructor stub
+		this.supplier = supplier;
+		this.supplierid = supplierid ;
+		this.suppliername = suppliername ;
+		this.supplierhead = supplierhead ;
+		this.suppliertel = suppliertel ;
+		this.supplieraddress = supplieraddress ;
+		this.suppliernote = suppliernote ;
+	}
 	public Supplier(int supplierid, String suppliername, String supplierhead, String suppliertel,
 			String supplieraddress, String suppliernote) {
 		// TODO Auto-generated constructor stub
@@ -17,6 +29,9 @@ public class Supplier {
 		this.suppliertel = suppliertel ;
 		this.supplieraddress = supplieraddress ;
 		this.suppliernote = suppliernote ;
+	}
+	public Supplier() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getSupplierid() {
 		return supplierid;
@@ -54,5 +69,10 @@ public class Supplier {
 	public void setSuppliernote(String suppliernote) {
 		this.suppliernote = suppliernote;
 	}
-	
+	public int getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(int supplier) {
+		this.supplier = supplier;
+	}
 }

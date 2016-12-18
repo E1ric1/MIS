@@ -19,8 +19,8 @@ public class FindOutOrder extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		//商品的各个属�?
-		String orderid = request.getParameter("orderid");
-		request.setAttribute("orderid",orderid);
+		int order = Integer.parseInt(request.getParameter("order"));
+		request.setAttribute("order",order);
 		request.getRequestDispatcher("outbuytable.jsp").forward(request, response);
 	}
 

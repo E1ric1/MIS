@@ -16,17 +16,20 @@
     <div class="container-fluid">
         <div class="row-fluid">
             <h4>采购统计</h4>
+             <div class="add"><a class="btn btn-success" href="findbuy.jsp" target="test">查询</a></div>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">
                         <thead>
                             <tr>
+                            	<th>总订单编号</th>
                             	<th>订单编号</th>
                                 <th>供应商编号</th>
                                 <th>采购时间</th>
                                 <th>商品编号</th>
                                 <th>采购数量</th>
                                 <th>采购备注</th>
+                               <th>详情</th>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -37,12 +40,14 @@
 	                                    List<Order> list=order.findOrder(orderclassid);
 	                                    for(Order s: list){ 
                                       %> 
+                                      <td><%=s.getOrder() %></td>
                                      <td><%=s.getOrderid() %></td>
                                      <td><%=s.getSupplierid() %></td>
                                      <td><%=s.getTime() %></td>
                                      <td><%=s.getGoodid() %></td>
                                      <td><%=s.getAcount() %></td>
                                      <td><%=s.getNote() %></td>
+                                     <td><a href="BuyDetail?orderid=<%=s.getOrderid()%>">详情</a></td>
                                   
                                </tr> 
                                

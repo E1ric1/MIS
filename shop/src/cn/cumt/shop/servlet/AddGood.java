@@ -45,14 +45,13 @@ public class AddGood extends HttpServlet {
 		good.setGoodclass(goodclass);
 		good.setGoodnote(goodnote);
 		int row = dao.addGood(good);
-		String msg ;
 		if(row !=0){
-			msg="成功" ;
+			response.sendRedirect("managegood.jsp");
 		}else{
-			msg="失败" ;
+			response.sendRedirect("null.jsp");
 		}
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("managegood.jsp").forward(request, response);
+		
+		
 	}
 
 }

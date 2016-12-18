@@ -15,16 +15,25 @@
             <h4>采购退货</h4>
             <div class="w">
                 <div class="span12">
-                <form action="FindOutOrder" method="post">
+                <form action="FindOrder" method="post">
                 <div>
                     <label>请输入采购订单编号</label>
                      <input type="text" id="orderid" name="orderid"/>
                  </div>   
                  <div>
-                 	 <input type="submit"  value="提交"/>
+                 	 <input type="submit"  value="查询"/>
                  </div>
                  </form>
-                    <div id="page" class="tr"></div>
+                 <br/>
+                <form action="FindSupplierOrder" method="post">
+                <div>
+                    <label>请输入供应商编号</label>
+                     <input type="text" id="supplierid" name="supplierid"/>
+                 </div>   
+                 <div>
+                 	 <input type="submit"  value="查询"/>
+                 </div>
+                 </form>
                 </div>
             </div>
         </div>

@@ -9,61 +9,14 @@
     <link href="../bootstrap2.3.2/css/bootstrap.min.css" rel="stylesheet" />
     <title></title>
     <link href="../styles/Common.css" rel="stylesheet" />
-    <link href="../styles/Index2.css" rel="stylesheet" />
-<!--     <script>
-    function addgood(){  
-		var goodname = document.getElementById("goodname") ;
-		if(goodname.value==""){
-			alert("不能为空！")
-			goodname.focus() ;
-			return false;
-		}
-		var goodid = document.getElementById("goodid") ;
-		if(goodid.value==""){
-			alert("不能为空！")
-			goodid.focus() ;
-			return false;
-		}
-		var goodclass = document.getElementById("goodclass") ;
-		if(goodclass.value==""){
-			alert("不能为空！")
-			goodclass.focus() ;
-			return false;
-		}
-		var goodunit = document.getElementById("goodunit") ;
-		if(goodunit.value==""){
-			alert("不能为空！")
-			goodunit.focus() ;
-			return false;
-		}
-		var goodamount = document.getElementById("goodamount") ;
-		if(goodamount.value==""){
-			alert("不能为空！")
-			goodamount.focus() ;
-			return false;
-		}
-		var buyprice = document.getElementById("buyprice") ;
-		if(buyprice.value==""){
-			alert("不能为空！")
-			buyprice.focus() ;
-			return false;
-		}
-		var sellprice = document.getElementById("sellprice") ;
-		if(sellprice.value==""){
-			alert("不能为空！")
-			sellprice.focus() ;
-			return false;
-		}
-		
-	}
-</script> -->
-        
+    <link href="../styles/Index2.css" rel="stylesheet" />       
 </head>
 <body>
     <div class="container-fluid">
         <div class="row-fluid">
             <h4>商品列表</h4>
             <div class="add"><a class="btn btn-success" href="addgood.jsp" target="test">新增</a></div>
+            <div class="add"><a class="btn btn-success" href="findgood.jsp">查询</a></div>
             <div class="w">
                 <div class="span12">
                
@@ -77,6 +30,7 @@
                                 <th>单位</th>
                                 <th>采购价</th>
                                 <th>销售价</th>
+                                <th>库存</th>
                                 <th>备注</th>
                             </tr>
                         </thead>
@@ -93,6 +47,7 @@
                                      <td><%=s.getGoodunit() %></td>
                                      <td><%=s.getBuyprice() %></td>
                                      <td><%=s.getSellprice() %></td>
+                                     <td><%=s.getGoodamount() %></td>
                                      <td><%=s.getGoodnote() %></td>
                                </tr> 
                                
@@ -102,40 +57,6 @@
                    </tbody>
                     
                     			 </table>
-                   <!--   <form name="addgood_form" action="AddGood" method="post" >
-                              <div>
-                              		 <label>商品名称</label>
-                               	     <input type="text" id="goodname" name="goodname"/>
-                              </div>
-                              <div>
-                              		 <label>商品编号</label>
-                               	     <input type="text" id="goodid" name="goodid"/>
-                              </div>
-                              <div>
-                             		 <label>商品类别</label>
-                               	     <input type="text" id="goodclass" name="goodclass"/>
-                               	  </div>
-                               	  <div>
-                               	  <label>商品单位</label>
-                               	     <input type="text" id="goodunit" name="goodunit"/>
-                               	    </div>
-                               	    <div> 
-                               	    <label>商品采购价</label>
-                               	     <input type="text" id="buyprice" name="buyprice"/>
-                               	     </div>
-                               	     <div>
-                               	     <label>商品销售价</label>
-                               	     <input type="text" id="sellprice" name="sellprice"/>
-                               	     </div>
-                               	     <div>
-                               	     <label>商品备注</label>
-                               	     <input type="text" id="goodnote" name="goodnote"/>
-                              </div>
-                              <div>
-                               	     <input class="put" id="put" type="button" onclick="addgood()" >
-                            </div>
-                            </form> -->
-                      
                     <div id="page" class="tr"></div>
                 </div>
             </div>

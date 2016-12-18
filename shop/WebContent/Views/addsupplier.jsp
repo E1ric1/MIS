@@ -10,66 +10,77 @@
     <link href="../styles/Index2.css" rel="stylesheet" />
 </head>
 <body>
+<script>
+    function addsupplier(){  
+		var supplierid = document.getElementById("supplierid") ;
+		if(supplierid.value==""){
+			alert("不能为空！")
+			supplierid.focus() ;
+			return false;
+		}
+		var suppliername = document.getElementById("suppliername") ;
+		if(suppliername.value==""){
+			alert("不能为空！")
+			suppliername.focus() ;
+			return false;
+		}
+		var supplierhead = document.getElementById("supplierhead") ;
+		if(supplierhead.value==""){
+			alert("不能为空！")
+			supplierhead.focus() ;
+			return false;
+		}
+		var suppliertel = document.getElementById("suppliertel") ;
+		if(suppliertel.value==""){
+			alert("不能为空！")
+			suppliertel.focus() ;
+			return false;
+		}
+		var supplieraddress = document.getElementById("supplieraddress") ;
+		if(supplieraddress.value==""){
+			alert("不能为空！")
+			supplieraddress.focus() ;
+			return false;
+		}
+		
+		form_addsupplier.submit();
+	}
+</script>
     <div class="container-fluid">
         <div class="row-fluid">
-            <h4>数据列表</h4>
-            <div class="add"><a class="btn btn-success" onclick="openadd();">新增</a></div>
+            <h4>添加供应商</h4>
             <div class="w">
                 <div class="span12">
-                    <table class="table table-condensed table-bordered table-hover tab">
-                        <thead>
-                            <tr>
-                                <th>姓名</th>
-                                <th>语文</th>
-                                <th>数学</th>
-                                <th>英语</th>
-                                <th>操作</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody"></tbody>
-                    </table>
-                    <div id="page" class="tr"></div>
+                    <form name="form_addsupplier" action="AddSupplier" method="post">
+                <div>
+                    <label>供应商编号</label>
+                    <input type="text" id="supplierid" name="supplierid"/>
                 </div>
-            </div>
-
-
-            <div id="addModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3 id="myModalLabel">添加成绩</h3>
+                <div>
+                     <label>供应商名称</label>
+                     <input type="text" id="suppliername" name="suppliername"/>
                 </div>
-                <div class="modal-body">
-                    <form class="form-horizontal">
-                        <div class="control-group">
-                            <label class="control-label" for="userName">姓名</label>
-                            <div class="controls">
-                                <input type="text" id="userName" placeholder="姓名">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Chinese">语文</label>
-                            <div class="controls">
-                                <input type="text" id="Chinese" placeholder="语文">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="Math">数学</label>
-                            <div class="controls">
-                                <input type="text" id="Math" placeholder="数学">
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <label class="control-label" for="English">英语</label>
-                            <div class="controls">
-                                <input type="text" id="English" placeholder="英语">
-                            </div>
-                        </div>
-                    </form>
+                <div>
+                     <label>供应商负责人</label>
+                     <input type="text" id="supplierhead" name="supplierhead"/>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn" data-dismiss="modal" aria-hidden="true">关闭</button>
-                    <button class="btn btn-primary" id="add" onclick="add();">保存</button>
-                    <button class="btn btn-primary" id="edt" onclick="edt();">保存</button>
+                <div>
+                     <label>供应商电话</label>
+                     <input type="text" id="suppliertel" name="suppliertel"/>
+                </div>
+                <div> 
+                     <label>供应商地址</label>
+                     <input type="text" id="supplieraddress" name="supplieraddress"/>
+                 </div>
+                 <div>
+                      <label>供应商备注</label>
+                      <input type="text" id="suppliernote" name="suppliernote"/>
+                 </div>
+                 <div>
+                      <input type="button" value="提交" onclick="addsupplier()" >
+                 </div>
+                 </form>
+                    
                 </div>
             </div>
         </div>

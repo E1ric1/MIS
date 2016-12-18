@@ -10,4 +10,8 @@ public interface ISupplierDao {
 	public Supplier findById(int supplierid) ;	
 	//遍历供应商信息
     public List<Supplier> findSupplier() throws Exception;
+  //添加供应商
+  	public int addSupplier(Supplier supplier) ;
+  //获得ID
+    public int getId() ;
 }

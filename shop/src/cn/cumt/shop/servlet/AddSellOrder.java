@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cn.cumt.shop.dao.IGoodDao;
 import cn.cumt.shop.dao.IOrderDao;
@@ -31,14 +32,12 @@ public class AddSellOrder extends HttpServlet {
 		String acount = request.getParameter("acount");
 		String time = request.getParameter("time");
 		String note = request.getParameter("note");
-		//保存id
-		request.setAttribute("orderid",orderid);
 		
 		IOrderDao dao = new OrderDaoImpl();
 		Order order = new Order() ;
 		int orderclassid=3 ;
-		int id = dao.getId() ;
-		order.setOrder(id);
+		int oid = dao.getId() ;
+		order.setOrder(oid);
 		order.setOrderid(Integer.parseInt(orderid));
 		order.setOrderclassid(orderclassid);
 		order.setCustomerid(Integer.parseInt(customerid));
@@ -46,7 +45,7 @@ public class AddSellOrder extends HttpServlet {
 		order.setAcount(Integer.parseInt(acount)); 
 		order.setTime(time); //String字符类型数据转换为Integer整型数据
 		order.setNote(note);
-		int row = dao.addbuyorder(order);
+		int row = dao.addsellorder(order);
 		
 		//库存更改
 		IGoodDao d = new GoodDaoImpl();
@@ -55,14 +54,14 @@ public class AddSellOrder extends HttpServlet {
 		int goodamount = good.getGoodamount() ;
 		int add = goodamount - Integer.parseInt(acount) ;
 		int raw = d.udateBuyGood(add, Integer.parseInt(goodid));
-		String msg ;
 		if(row !=0 && raw !=0){
-			msg="成功" ;
+			HttpSession session = request.getSession();
+			session.setAttribute("oid", oid);
+			response.sendRedirect("delsell.jsp");
 		}else{
-			msg="失败" ;
+			
 		}
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("selltable.jsp").forward(request, response);
+	
 	}
 
 }

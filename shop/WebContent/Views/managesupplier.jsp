@@ -17,6 +17,7 @@
         <div class="row-fluid">
             <h4>供应商列表</h4>
             <div class="add"><a class="btn btn-success" href="addsupplier.jsp">新增</a></div>
+            <div class="add"><a class="btn btn-success" href="findsupplier.jsp">查询</a></div>
             <div class="w">
                 <div class="span12">
                     <table class="table table-condensed table-bordered table-hover tab">

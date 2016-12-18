@@ -39,14 +39,12 @@ public class AddCustomer extends HttpServlet {
 		customer.setCustomeraddress(customeraddress);
 		customer.setCustomernote(customernote);
 		int row = dao.addCustomer(customer);
-		String msg ;
 		if(row !=0){
-			msg="成功" ;
+			response.sendRedirect("managecustomer.jsp");
 		}else{
-			msg="失败" ;
+			response.sendRedirect("null.jsp");
 		}
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("managecustomer.jsp").forward(request, response);
+	
 	}
 
 }

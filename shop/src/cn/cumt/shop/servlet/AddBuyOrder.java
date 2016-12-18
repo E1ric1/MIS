@@ -1,11 +1,11 @@
 package cn.cumt.shop.servlet;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import cn.cumt.shop.dao.IGoodDao;
 import cn.cumt.shop.dao.IOrderDao;
@@ -31,9 +31,7 @@ public class AddBuyOrder extends HttpServlet {
 		String acount = request.getParameter("acount");
 		String time = request.getParameter("time");
 		String note = request.getParameter("note");
-		//保存id
-		request.setAttribute("orderid",orderid);
-		
+		//保存id	
 		IOrderDao dao = new OrderDaoImpl();
 		Order order = new Order() ;
 		int orderclassid=1 ;
@@ -55,14 +53,14 @@ public class AddBuyOrder extends HttpServlet {
 		int goodamount = good.getGoodamount() ;
 		int add = goodamount + Integer.parseInt(acount) ;
 		int raw = d.udateBuyGood(add, Integer.parseInt(goodid));
-		String msg ;
+		
 		if(row !=0 && raw !=0){
-			msg="成功" ;
+			HttpSession session = request.getSession();
+			session.setAttribute("id", id);
+			response.sendRedirect("delgood.jsp");
 		}else{
-			msg="失败" ;
+			response.sendRedirect("null.jsp");
 		}
-		request.setAttribute("msg", msg);
-		request.getRequestDispatcher("buygood.jsp").forward(request, response);
 	}
 
 }

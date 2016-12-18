@@ -15,16 +15,25 @@
             <h4>销售退货</h4>
             <div class="w">
                 <div class="span12">
-                <form action="FindSellOutOrder" method="post">
+                <form action="FindSellOrder" method="post">
                 <div>
-                    <label>请输入销售订单编号进行退货</label>
+                    <label>请输入销售订单编号</label>
                      <input type="text" id="orderid" name="orderid"/>
                  </div>   
                  <div>
-                 	 <input type="submit"  value="提交"/>
+                 	 <input type="submit"  value="查询"/>
                  </div>
                  </form>
-                    <div id="page" class="tr"></div>
+                 <br/>
+                 <form action="FindCustomerOrder" method="post">
+                <div>
+                    <label>请输入客户编号</label>
+                     <input type="text" id="customerid" name="customerid"/>
+                 </div>   
+                 <div>
+                 	 <input type="submit"  value="查询"/>
+                 </div>
+                 </form>
                 </div>
             </div>
         </div>

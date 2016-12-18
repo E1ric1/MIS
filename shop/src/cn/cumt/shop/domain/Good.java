@@ -12,7 +12,7 @@ public class Good {
 	public Good() {
 		// TODO Auto-generated constructor stub
 	}
-	public Good(int goodid, String goodname, double buyprice, double sellprice, int goodamount, String goodunit,
+	public Good( int goodid, String goodname, double buyprice, double sellprice, int goodamount, String goodunit,
 			String goodclass, String goodnote) {
 		// TODO Auto-generated constructor stub
 		this.goodid = goodid ;
@@ -24,7 +24,7 @@ public class Good {
 		this.goodclass = goodclass ;
 		this.goodnote = goodnote ;
 	}
-	
+
 
 	public Good(int goodid, int goodamount) {
 		// TODO Auto-generated constructor stub

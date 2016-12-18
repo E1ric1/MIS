@@ -26,22 +26,20 @@ public class DelSellOrder extends HttpServlet{
 		// TODO Auto-generated method stub
 		String orderid = req.getParameter("orderid") ;
 		String goodid = req.getParameter("goodid") ;
-		req.setAttribute("orderid",orderid);
 		IOrderDao dao = new OrderDaoImpl() ;
-		Order order = dao.findorder(Integer.parseInt(goodid), Integer.parseInt(orderid));
+		Order order = dao.findorder(Integer.parseInt(orderid));
 		int acount = order.getAcount();
-		int a = order.getOrder();
 		//库存更改
 		IGoodDao d = new GoodDaoImpl();
 		Good good = new Good() ;
 		good = d.findById(Integer.parseInt(goodid));
 		int goodamount = good.getGoodamount() ;
-		int del = goodamount - acount ;
+		int del = goodamount + acount ;
 		int raw = d.udateBuyGood(del, Integer.parseInt(goodid));
-		boolean flag = dao.DelOrder(a) ;
+		boolean flag = dao.DelOrder(Integer.parseInt(orderid)) ;
 	
 		if(flag && raw !=0){
-			resp.sendRedirect("selltable.jsp");
+			resp.sendRedirect("delsell.jsp");
 		}else{
 			resp.sendRedirect("null.jsp");
 		}
